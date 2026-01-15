@@ -3,6 +3,8 @@ import { Download, Menu, X, ChevronDown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import type { PageType } from '../App';
 import type { FilterType } from '../App';
+import { REALISATION_FILTERS } from '../constants/navigation';
+import { scrollToTop } from '../utils/helpers';
 
 interface HeaderProps {
   currentPage: PageType;
@@ -44,7 +46,7 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
   const handleNavClick = (page: PageType) => {
     setCurrentPage(page);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   };
 
   const handleFilterClick = (filter: FilterType) => {
@@ -61,8 +63,8 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
       transition={{ duration: 0.6, type: 'spring' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-lg shadow-md'
-          : 'bg-white/80 backdrop-blur-sm'
+          ? 'bg-background/95 backdrop-blur-lg shadow-md border-b border-border'
+          : 'bg-background/80 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -70,12 +72,12 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
           {/* Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="hover:scale-105 transition-transform"
+            className="hover:scale-105 transition-transform text-left"
           >
-            <span className="text-lg md:text-xl text-primary">
+            <span className="text-lg md:text-xl font-bold text-white block">
               Sanjali Frédélisy
             </span>
-            <span className="hidden md:inline text-sm text-muted-foreground ml-2">
+            <span className="hidden md:inline text-sm text-white/70">
               — Communication
             </span>
           </button>
@@ -86,8 +88,8 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
               onClick={() => handleNavClick('home')}
               className={`transition-colors ${
                 currentPage === 'home'
-                  ? 'text-primary'
-                  : 'text-foreground hover:text-primary'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-white/80 hover:text-white'
               }`}
             >
               Accueil
@@ -99,8 +101,8 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
                 onClick={() => setIsRealisationsDropdownOpen(!isRealisationsDropdownOpen)}
                 className={`flex items-center gap-1 transition-colors ${
                   currentPage === 'realisations'
-                    ? 'text-primary'
-                    : 'text-foreground hover:text-primary'
+                    ? 'text-white font-medium border-b-2 border-white'
+                    : 'text-white/80 hover:text-white'
                 }`}
               >
                 Réalisations
@@ -119,26 +121,17 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full mt-2 left-0 bg-white rounded-2xl shadow-xl overflow-hidden min-w-[200px] border border-primary/10"
+                    className="absolute top-full mt-2 left-0 bg-card rounded-2xl shadow-xl overflow-hidden min-w-[200px] border border-border"
                   >
-                    <button
-                      onClick={() => handleFilterClick('entreprise')}
-                      className="w-full px-6 py-3 text-left hover:bg-rose-50 transition-colors text-foreground"
-                    >
-                      Projets entreprise
-                    </button>
-                    <button
-                      onClick={() => handleFilterClick('ecole')}
-                      className="w-full px-6 py-3 text-left hover:bg-rose-50 transition-colors text-foreground"
-                    >
-                      Projets école
-                    </button>
-                    <button
-                      onClick={() => handleFilterClick('personnel')}
-                      className="w-full px-6 py-3 text-left hover:bg-rose-50 transition-colors text-foreground"
-                    >
-                      Projets personnels
-                    </button>
+                    {REALISATION_FILTERS.map((filter) => (
+                      <button
+                        key={filter.value}
+                        onClick={() => handleFilterClick(filter.value)}
+                        className="w-full px-6 py-3 text-left hover:bg-secondary transition-colors text-white text-sm"
+                      >
+                        {filter.label}
+                      </button>
+                    ))}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -148,8 +141,8 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
               onClick={() => handleNavClick('about')}
               className={`transition-colors ${
                 currentPage === 'about'
-                  ? 'text-primary'
-                  : 'text-foreground hover:text-primary'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-white/80 hover:text-white'
               }`}
             >
               À propos
@@ -158,8 +151,8 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
               onClick={() => handleNavClick('contact')}
               className={`transition-colors ${
                 currentPage === 'contact'
-                  ? 'text-primary'
-                  : 'text-foreground hover:text-primary'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-white/80 hover:text-white'
               }`}
             >
               Contact
@@ -173,7 +166,7 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-full shadow-md hover:shadow-lg transition-all"
+            className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-white text-background rounded-full shadow-md hover:shadow-lg transition-all font-medium"
           >
             <Download className="w-4 h-4" />
             Télécharger mon CV
@@ -182,7 +175,7 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-foreground"
+            className="md:hidden text-white"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -197,12 +190,12 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 pb-4 space-y-4"
+            className="md:hidden mt-4 pb-4 space-y-4 bg-card p-4 rounded-xl border border-border"
           >
             <button
               onClick={() => handleNavClick('home')}
               className={`block w-full text-left py-2 ${
-                currentPage === 'home' ? 'text-primary' : 'text-foreground'
+                currentPage === 'home' ? 'text-white font-medium' : 'text-white/80'
               }`}
             >
               Accueil
@@ -213,7 +206,7 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
               <button
                 onClick={() => setIsMobileRealisationsOpen(!isMobileRealisationsOpen)}
                 className={`flex items-center justify-between w-full text-left py-2 ${
-                  currentPage === 'realisations' ? 'text-primary' : 'text-foreground'
+                  currentPage === 'realisations' ? 'text-white font-medium' : 'text-white/80'
                 }`}
               >
                 Réalisations
@@ -232,26 +225,17 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="pl-4 mt-2 space-y-2"
+                    className="pl-4 mt-2 space-y-2 border-l border-white/20 ml-2"
                   >
-                    <button
-                      onClick={() => handleFilterClick('entreprise')}
-                      className="block w-full text-left py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      Projets entreprise
-                    </button>
-                    <button
-                      onClick={() => handleFilterClick('ecole')}
-                      className="block w-full text-left py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      Projets école
-                    </button>
-                    <button
-                      onClick={() => handleFilterClick('personnel')}
-                      className="block w-full text-left py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      Projets personnels
-                    </button>
+                    {REALISATION_FILTERS.map((filter) => (
+                      <button
+                        key={filter.value}
+                        onClick={() => handleFilterClick(filter.value)}
+                        className="block w-full text-left py-2 text-sm text-white/70 hover:text-white transition-colors"
+                      >
+                        {filter.label}
+                      </button>
+                    ))}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -260,7 +244,7 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
             <button
               onClick={() => handleNavClick('about')}
               className={`block w-full text-left py-2 ${
-                currentPage === 'about' ? 'text-primary' : 'text-foreground'
+                currentPage === 'about' ? 'text-white font-medium' : 'text-white/80'
               }`}
             >
               À propos
@@ -268,7 +252,7 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
             <button
               onClick={() => handleNavClick('contact')}
               className={`block w-full text-left py-2 ${
-                currentPage === 'contact' ? 'text-primary' : 'text-foreground'
+                currentPage === 'contact' ? 'text-white font-medium' : 'text-white/80'
               }`}
             >
               Contact
@@ -277,7 +261,7 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-full shadow-md w-fit"
+              className="flex items-center gap-2 px-6 py-2.5 bg-white text-background rounded-full shadow-md w-fit font-medium"
             >
               <Download className="w-4 h-4" />
               Télécharger mon CV

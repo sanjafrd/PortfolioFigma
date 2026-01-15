@@ -6,6 +6,7 @@ import { AboutPage } from './components/pages/AboutPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { ProjectDetailPage } from './components/pages/ProjectDetailPage';
 import { Footer } from './components/Footer';
+import { scrollToTop } from './utils/helpers';
 
 export type PageType = 'home' | 'realisations' | 'about' | 'contact' | 'project';
 export type FilterType = 'all' | 'entreprise' | 'ecole' | 'personnel';
@@ -18,13 +19,13 @@ export default function App() {
   const navigateToProject = (projectId: number) => {
     setSelectedProjectId(projectId);
     setCurrentPage('project');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   };
 
   const handleFilteredNavigation = (filter: FilterType) => {
     setProjectFilter(filter);
     setCurrentPage('realisations');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   };
 
   return (

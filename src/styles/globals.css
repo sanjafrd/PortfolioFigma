@@ -4,65 +4,82 @@
 
 :root {
   --font-size: 16px;
-  --background: #fdfbf8;
-  --foreground: #5a4a42;
-  --card: #ffffff;
-  --card-foreground: #5a4a42;
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #e8b4b8;
-  --primary-foreground: #ffffff;
-  --secondary: #f5ebe5;
-  --secondary-foreground: #5a4a42;
-  --muted: #f5ebe5;
-  --muted-foreground: #9b8b82;
-  --accent: #f3d5d7;
-  --accent-foreground: #5a4a42;
+  /* Dark Red Theme */
+  --background: #4e0201;
+  --foreground: #ffffff;
+  
+  --card: #5e0302;
+  --card-foreground: #ffffff;
+  
+  --popover: #4e0201;
+  --popover-foreground: #ffffff;
+  
+  /* Buttons are White with Red text */
+  --primary: #ffffff;
+  --primary-foreground: #4e0201;
+  
+  --secondary: #3a0101;
+  --secondary-foreground: #ffffff;
+  
+  --muted: #3a0101;
+  --muted-foreground: #dccaca;
+  
+  --accent: #5e0302;
+  --accent-foreground: #ffffff;
+  
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(232, 180, 184, 0.2);
-  --input: transparent;
-  --input-background: #fff9f6;
-  --switch-background: #f3d5d7;
+  
+  --border: #750403;
+  --input: #3a0101;
+  --input-background: #3a0101; /* Darker input bg */
+  
+  --switch-background: #5e0302;
+  
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #e8b4b8;
+  
+  --ring: #ffffff;
+  
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  
   --radius: 1rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  
+  --sidebar: #4e0201;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #4e0201;
+  --sidebar-accent: #5e0302;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #750403;
+  --sidebar-ring: #ffffff;
 }
 
+/* Ensure .dark uses the same theme since the user wants it global */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --background: #4e0201;
+  --foreground: #ffffff;
+  --card: #5e0302;
+  --card-foreground: #ffffff;
+  --popover: #4e0201;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #4e0201;
+  --secondary: #3a0101;
+  --secondary-foreground: #ffffff;
+  --muted: #3a0101;
+  --muted-foreground: #dccaca;
+  --accent: #5e0302;
+  --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: #750403;
+  --input: #3a0101;
+  --ring: #ffffff;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --chart-1: oklch(0.488 0.243 264.376);
@@ -70,14 +87,14 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar: #4e0201;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #4e0201;
+  --sidebar-accent: #5e0302;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #750403;
+  --sidebar-ring: #ffffff;
 }
 
 @theme inline {
@@ -133,7 +150,7 @@
 }
 
 /**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ * Base typography.
  */
 @layer base {
   :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {

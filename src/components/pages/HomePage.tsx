@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { PageType } from '../../App';
+import { scrollToTop } from '../../utils/helpers';
 
 interface Slide {
   id: number;
@@ -15,19 +16,19 @@ const slides: Slide[] = [
     id: 1,
     title: 'Communication visuelle',
     subtitle: 'Créer des supports qui allient esthétique et clarté',
-    gradient: 'from-rose-200 via-pink-100 to-orange-50',
+    gradient: 'from-background via-card to-secondary',
   },
   {
     id: 2,
     title: 'Projets créatifs',
     subtitle: 'Des réalisations pensées avec passion et attention',
-    gradient: 'from-pink-100 via-rose-50 to-amber-50',
+    gradient: 'from-secondary via-background to-accent',
   },
   {
     id: 3,
     title: 'Design & stratégie',
     subtitle: 'Apporter ma touche personnelle à chaque projet',
-    gradient: 'from-orange-50 via-pink-50 to-rose-100',
+    gradient: 'from-card via-secondary to-background',
   },
 ];
 
@@ -55,11 +56,11 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
 
   const handleViewRealisations = () => {
     setCurrentPage('realisations');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -81,17 +82,17 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-7xl mb-6 text-foreground tracking-tight">
+            <h1 className="text-5xl md:text-7xl mb-6 text-white tracking-tight drop-shadow-lg">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
               {slides[currentSlide].subtitle}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleViewRealisations}
-              className="px-10 py-4 bg-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all"
+              className="px-10 py-4 bg-white text-background rounded-full shadow-lg hover:shadow-xl transition-all font-medium"
             >
               Voir les réalisations
             </motion.button>
@@ -102,13 +103,13 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
       {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all shadow-md"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-background transition-all shadow-md"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all shadow-md"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-background transition-all shadow-md"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -120,7 +121,7 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`h-2 rounded-full transition-all ${
-              index === currentSlide ? 'bg-primary w-8' : 'bg-primary/50 w-2'
+              index === currentSlide ? 'bg-white w-8' : 'bg-white/40 w-2'
             }`}
           />
         ))}

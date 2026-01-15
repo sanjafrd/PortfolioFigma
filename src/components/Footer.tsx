@@ -1,9 +1,11 @@
 import { motion } from 'motion/react';
 import { Linkedin, Instagram, Dribbble } from 'lucide-react';
+import { SOCIAL_LINKS } from '../constants/navigation';
+import { getCurrentYear } from '../utils/helpers';
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-rose-100 via-pink-50 to-orange-50 px-6 py-12 border-t border-primary/10">
+    <footer className="bg-secondary px-6 py-12 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="text-center">
           <motion.div
@@ -12,7 +14,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl mb-6 text-primary">
+            <h3 className="text-2xl mb-6 text-white font-serif">
               Sanjali Frédélisy
             </h3>
           </motion.div>
@@ -25,32 +27,35 @@ export function Footer() {
             className="flex justify-center gap-4 mb-8"
           >
             <motion.a
-              href="https://linkedin.com"
+              href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all shadow-md"
+              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-background hover:bg-card hover:text-white transition-all shadow-md"
+              aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://instagram.com"
+              href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all shadow-md"
+              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-background hover:bg-card hover:text-white transition-all shadow-md"
+              aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://behance.net"
+              href={SOCIAL_LINKS.behance}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all shadow-md"
+              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-background hover:bg-card hover:text-white transition-all shadow-md"
+              aria-label="Behance"
             >
               <Dribbble className="w-5 h-5" />
             </motion.a>
@@ -61,7 +66,7 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg text-foreground/80 mb-6 italic"
+            className="text-lg text-white/80 mb-6 italic font-light"
           >
             Pensé avec passion, conçu avec le cœur
           </motion.p>
@@ -71,9 +76,9 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-sm text-muted-foreground"
+            className="text-sm text-white/50"
           >
-            © 2024 Sanjali Frédélisy. Tous droits réservés.
+            © {getCurrentYear()} Sanjali Frédélisy. Tous droits réservés.
           </motion.div>
         </div>
       </div>
