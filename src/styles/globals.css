@@ -4,48 +4,53 @@
 
 :root {
   --font-size: 16px;
-  /* Dark Red Theme */
-  --background: #4e0201;
+  /* Deep Red Background #4e0201 */
+  --background: #4e0201; 
+  /* White Text */
   --foreground: #ffffff;
   
-  --card: #5e0302;
+  /* Cards: Slightly lighter red for contrast */
+  --card: #6f1a19;
   --card-foreground: #ffffff;
   
-  --popover: #4e0201;
+  --popover: #6f1a19;
   --popover-foreground: #ffffff;
   
-  /* Buttons are White with Red text */
-  --primary: #ffffff;
-  --primary-foreground: #4e0201;
+  /* Primary Red #4e0201 - used for elements needing the brand color */
+  --primary: #4e0201;
+  --primary-foreground: #ffffff;
   
-  --secondary: #3a0101;
+  /* Secondary: Lighter red/pinkish for accents */
+  --secondary: #913331;
   --secondary-foreground: #ffffff;
   
-  --muted: #3a0101;
-  --muted-foreground: #dccaca;
+  --muted: #2a0000;
+  --muted-foreground: #d4d4d4;
   
-  --accent: #5e0302;
+  --accent: #913331;
   --accent-foreground: #ffffff;
   
-  --destructive: #d4183d;
+  --destructive: #ff4d4d;
   --destructive-foreground: #ffffff;
   
-  --border: #750403;
-  --input: #3a0101;
-  --input-background: #3a0101; /* Darker input bg */
+  /* Border: Transparent white */
+  --border: rgba(255, 255, 255, 0.2);
   
-  --switch-background: #5e0302;
+  --input: rgba(255, 255, 255, 0.2);
+  --input-background: rgba(255, 255, 255, 0.1);
+  
+  --switch-background: #913331;
   
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   
-  --ring: #ffffff;
+  --ring: rgba(255, 255, 255, 0.5);
   
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --chart-1: #ff6b6b;
+  --chart-2: #ff8787;
+  --chart-3: #ffa5a5;
+  --chart-4: #ffd4d4;
+  --chart-5: #ffe3e3;
   
   --radius: 1rem;
   
@@ -53,48 +58,33 @@
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #ffffff;
   --sidebar-primary-foreground: #4e0201;
-  --sidebar-accent: #5e0302;
+  --sidebar-accent: #6f1a19;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #750403;
-  --sidebar-ring: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.2);
+  --sidebar-ring: rgba(255, 255, 255, 0.5);
 }
 
-/* Ensure .dark uses the same theme since the user wants it global */
 .dark {
+  /* Keeping dark mode same as root for now as the requested design IS dark */
   --background: #4e0201;
   --foreground: #ffffff;
-  --card: #5e0302;
+  --card: #6f1a19;
   --card-foreground: #ffffff;
-  --popover: #4e0201;
+  --popover: #6f1a19;
   --popover-foreground: #ffffff;
   --primary: #ffffff;
   --primary-foreground: #4e0201;
-  --secondary: #3a0101;
+  --secondary: #913331;
   --secondary-foreground: #ffffff;
-  --muted: #3a0101;
-  --muted-foreground: #dccaca;
-  --accent: #5e0302;
+  --muted: #2a0000;
+  --muted-foreground: #d4d4d4;
+  --accent: #913331;
   --accent-foreground: #ffffff;
-  --destructive: #d4183d;
+  --destructive: #ff4d4d;
   --destructive-foreground: #ffffff;
-  --border: #750403;
-  --input: #3a0101;
-  --ring: #ffffff;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: #4e0201;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ffffff;
-  --sidebar-primary-foreground: #4e0201;
-  --sidebar-accent: #5e0302;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #750403;
-  --sidebar-ring: #ffffff;
+  --border: rgba(255, 255, 255, 0.2);
+  --input: rgba(255, 255, 255, 0.2);
+  --ring: rgba(255, 255, 255, 0.5);
 }
 
 @theme inline {
@@ -154,53 +144,59 @@
  */
 @layer base {
   :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+    h1, h2, h3, h4, p, label, button, input {
+      line-height: 1.5;
+    }
+
     h1 {
       font-size: var(--text-2xl);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
     }
 
     h2 {
       font-size: var(--text-xl);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
     }
 
     h3 {
       font-size: var(--text-lg);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
     }
 
     h4 {
       font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
     }
 
-    p {
+    p, input {
       font-size: var(--text-base);
       font-weight: var(--font-weight-normal);
-      line-height: 1.5;
     }
 
-    label {
+    label, button {
       font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
     }
-
-    button {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    input {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
+  }
+  /* Scrollbar Utilities */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  /* Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
   }
 }
 

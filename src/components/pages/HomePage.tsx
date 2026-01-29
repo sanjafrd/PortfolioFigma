@@ -16,19 +16,19 @@ const slides: Slide[] = [
     id: 1,
     title: 'Communication visuelle',
     subtitle: 'Créer des supports qui allient esthétique et clarté',
-    gradient: 'from-background via-card to-secondary',
+    gradient: 'from-[#4e0201] via-[#6f1a19] to-[#913331]',
   },
   {
     id: 2,
     title: 'Projets créatifs',
     subtitle: 'Des réalisations pensées avec passion et attention',
-    gradient: 'from-secondary via-background to-accent',
+    gradient: 'from-[#6f1a19] via-[#4e0201] to-[#2a0000]',
   },
   {
     id: 3,
     title: 'Design & stratégie',
     subtitle: 'Apporter ma touche personnelle à chaque projet',
-    gradient: 'from-card via-secondary to-background',
+    gradient: 'from-[#913331] via-[#6f1a19] to-[#4e0201]',
   },
 ];
 
@@ -60,7 +60,7 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -82,17 +82,17 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-7xl mb-6 text-white tracking-tight drop-shadow-lg">
+            <h1 className="text-5xl md:text-7xl mb-6 text-foreground tracking-tight">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
+            <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
               {slides[currentSlide].subtitle}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleViewRealisations}
-              className="px-10 py-4 bg-white text-background rounded-full shadow-lg hover:shadow-xl transition-all font-medium"
+              className="px-10 py-4 bg-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all"
             >
               Voir les réalisations
             </motion.button>
@@ -103,13 +103,15 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
       {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-background transition-all shadow-md"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all shadow-md"
+        aria-label="Diapositive précédente"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-background transition-all shadow-md"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all shadow-md"
+        aria-label="Diapositive suivante"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -121,8 +123,10 @@ export function HomePage({ setCurrentPage }: HomePageProps) {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`h-2 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white w-8' : 'bg-white/40 w-2'
+              index === currentSlide ? 'bg-primary w-8' : 'bg-primary/50 w-2'
             }`}
+            aria-label={`Aller à la diapositive ${index + 1}`}
+            aria-current={index === currentSlide ? 'true' : 'false'}
           />
         ))}
       </div>

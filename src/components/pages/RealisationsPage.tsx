@@ -3,6 +3,7 @@ import type { FilterType } from '../../App';
 import { projects } from '../../data/projects';
 import { getFilterTitle } from '../../utils/helpers';
 import { ProjectCard } from '../ProjectCard';
+import { cn } from '../ui/utils';
 
 interface RealisationsPageProps {
   navigateToProject: (projectId: number) => void;
@@ -28,7 +29,7 @@ export function RealisationsPage({ navigateToProject, filter }: RealisationsPage
     : projects.filter(project => project.type === filter);
 
   return (
-    <section className="min-h-screen px-4 py-24 sm:px-6 sm:py-32 bg-gradient-to-br from-background via-secondary to-background">
+    <section className="min-h-screen px-4 py-24 sm:px-6 sm:py-32 bg-gradient-to-br from-[#4e0201] via-[#2a0000] to-[#4e0201]">
       <div className="max-w-[1600px] mx-auto">
         {/* Header */}
         <motion.div
@@ -40,9 +41,6 @@ export function RealisationsPage({ navigateToProject, filter }: RealisationsPage
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-medium mb-6 text-white">
             {getFilterTitle(filter)}
           </h1>
-          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto font-light tracking-wide">
-            Une sélection de projets {filter !== 'all' ? filter : ''} conçus avec passion et minutie.
-          </p>
         </motion.div>
 
         {/* Masonry Grid - Optimized with granular rows */}
@@ -71,7 +69,7 @@ export function RealisationsPage({ navigateToProject, filter }: RealisationsPage
             animate={{ opacity: 1 }}
             className="text-center py-32"
           >
-            <p className="text-2xl font-serif text-white/40">
+            <p className="text-2xl font-serif text-muted-foreground/50">
               Aucun projet à afficher pour le moment.
             </p>
           </motion.div>

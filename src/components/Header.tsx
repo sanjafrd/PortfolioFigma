@@ -63,34 +63,37 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
       transition={{ duration: 0.6, type: 'spring' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-lg shadow-md border-b border-border'
-          : 'bg-background/80 backdrop-blur-sm'
+          ? 'bg-white/95 backdrop-blur-lg shadow-md'
+          : 'bg-white shadow-sm'
       }`}
+      role="banner"
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="hover:scale-105 transition-transform text-left"
+            className="hover:scale-105 transition-transform"
+            aria-label="Retour à l'accueil"
           >
-            <span className="text-lg md:text-xl font-bold text-white block">
+            <span className="text-lg md:text-xl text-primary font-bold">
               Sanjali Frédélisy
             </span>
-            <span className="hidden md:inline text-sm text-white/70">
+            <span className="hidden md:inline text-sm text-[#4e0201]/80 ml-2">
               — Communication
             </span>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" role="navigation" aria-label="Menu principal">
             <button
               onClick={() => handleNavClick('home')}
               className={`transition-colors ${
                 currentPage === 'home'
-                  ? 'text-white font-medium border-b-2 border-white'
-                  : 'text-white/80 hover:text-white'
+                  ? 'text-primary font-semibold'
+                  : 'text-[#4e0201] hover:text-primary/80'
               }`}
+              aria-current={currentPage === 'home' ? 'page' : undefined}
             >
               Accueil
             </button>
@@ -101,16 +104,19 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
                 onClick={() => setIsRealisationsDropdownOpen(!isRealisationsDropdownOpen)}
                 className={`flex items-center gap-1 transition-colors ${
                   currentPage === 'realisations'
-                    ? 'text-white font-medium border-b-2 border-white'
-                    : 'text-white/80 hover:text-white'
+                    ? 'text-primary font-semibold'
+                    : 'text-[#4e0201] hover:text-primary/80'
                 }`}
+                aria-expanded={isRealisationsDropdownOpen}
+                aria-haspopup="true"
+                aria-current={currentPage === 'realisations' ? 'page' : undefined}
               >
                 Réalisations
                 <motion.div
                   animate={{ rotate: isRealisationsDropdownOpen ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-4 h-4 text-[#4e0201]" />
                 </motion.div>
               </button>
 
@@ -121,13 +127,15 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full mt-2 left-0 bg-card rounded-2xl shadow-xl overflow-hidden min-w-[200px] border border-border"
+                    className="absolute top-full mt-2 left-0 bg-white rounded-xl shadow-xl overflow-hidden min-w-[200px] border border-[#4e0201]/10"
+                    role="menu"
                   >
                     {REALISATION_FILTERS.map((filter) => (
                       <button
                         key={filter.value}
                         onClick={() => handleFilterClick(filter.value)}
-                        className="w-full px-6 py-3 text-left hover:bg-secondary transition-colors text-white text-sm"
+                        className="w-full px-6 py-3 text-left hover:bg-[#4e0201]/5 transition-colors text-[#4e0201]"
+                        role="menuitem"
                       >
                         {filter.label}
                       </button>
@@ -141,9 +149,10 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
               onClick={() => handleNavClick('about')}
               className={`transition-colors ${
                 currentPage === 'about'
-                  ? 'text-white font-medium border-b-2 border-white'
-                  : 'text-white/80 hover:text-white'
+                  ? 'text-primary font-semibold'
+                  : 'text-[#4e0201] hover:text-primary/80'
               }`}
+              aria-current={currentPage === 'about' ? 'page' : undefined}
             >
               À propos
             </button>
@@ -151,9 +160,10 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
               onClick={() => handleNavClick('contact')}
               className={`transition-colors ${
                 currentPage === 'contact'
-                  ? 'text-white font-medium border-b-2 border-white'
-                  : 'text-white/80 hover:text-white'
+                  ? 'text-primary font-semibold'
+                  : 'text-[#4e0201] hover:text-primary/80'
               }`}
+              aria-current={currentPage === 'contact' ? 'page' : undefined}
             >
               Contact
             </button>
@@ -166,7 +176,8 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-white text-background rounded-full shadow-md hover:shadow-lg transition-all font-medium"
+            className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-full shadow-md hover:shadow-lg transition-all"
+            aria-label="Télécharger mon CV (PDF)"
           >
             <Download className="w-4 h-4" />
             Télécharger mon CV
@@ -175,7 +186,9 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
+            className="md:hidden text-[#4e0201]"
+            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -186,88 +199,103 @@ export function Header({ currentPage, setCurrentPage, onFilteredNavigation }: He
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 pb-4 space-y-4 bg-card p-4 rounded-xl border border-border"
-          >
-            <button
-              onClick={() => handleNavClick('home')}
-              className={`block w-full text-left py-2 ${
-                currentPage === 'home' ? 'text-white font-medium' : 'text-white/80'
-              }`}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mt-4 pb-4 space-y-4 bg-white rounded-lg p-4 shadow-xl"
+              role="navigation"
+              aria-label="Menu mobile"
             >
-              Accueil
-            </button>
-            
-            {/* Mobile Réalisations Dropdown */}
-            <div>
               <button
-                onClick={() => setIsMobileRealisationsOpen(!isMobileRealisationsOpen)}
-                className={`flex items-center justify-between w-full text-left py-2 ${
-                  currentPage === 'realisations' ? 'text-white font-medium' : 'text-white/80'
+                onClick={() => handleNavClick('home')}
+                className={`block w-full text-left py-2 ${
+                  currentPage === 'home' ? 'text-primary font-semibold' : 'text-[#4e0201]'
                 }`}
+                aria-current={currentPage === 'home' ? 'page' : undefined}
               >
-                Réalisations
-                <motion.div
-                  animate={{ rotate: isMobileRealisationsOpen ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ChevronDown className="w-4 h-4" />
-                </motion.div>
+                Accueil
               </button>
               
-              <AnimatePresence>
-                {isMobileRealisationsOpen && (
+              {/* Mobile Réalisations Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsMobileRealisationsOpen(!isMobileRealisationsOpen)}
+                  className={`flex items-center justify-between w-full text-left py-2 ${
+                    currentPage === 'realisations' ? 'text-primary font-semibold' : 'text-[#4e0201]'
+                  }`}
+                  aria-expanded={isMobileRealisationsOpen}
+                  aria-haspopup="true"
+                  aria-current={currentPage === 'realisations' ? 'page' : undefined}
+                >
+                  Réalisations
                   <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="pl-4 mt-2 space-y-2 border-l border-white/20 ml-2"
+                    animate={{ rotate: isMobileRealisationsOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    {REALISATION_FILTERS.map((filter) => (
-                      <button
-                        key={filter.value}
-                        onClick={() => handleFilterClick(filter.value)}
-                        className="block w-full text-left py-2 text-sm text-white/70 hover:text-white transition-colors"
-                      >
-                        {filter.label}
-                      </button>
-                    ))}
+                    <ChevronDown className="w-4 h-4 text-[#4e0201]" />
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                </button>
+                
+                <AnimatePresence>
+                  {isMobileRealisationsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="pl-4 mt-2 space-y-2 border-l-2 border-[#4e0201]/10"
+                      role="menu"
+                    >
+                      {REALISATION_FILTERS.map((filter) => (
+                        <button
+                          key={filter.value}
+                          onClick={() => handleFilterClick(filter.value)}
+                          className="block w-full text-left py-2 text-sm text-[#4e0201]/80 hover:text-primary transition-colors"
+                          role="menuitem"
+                        >
+                          {filter.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-            <button
-              onClick={() => handleNavClick('about')}
-              className={`block w-full text-left py-2 ${
-                currentPage === 'about' ? 'text-white font-medium' : 'text-white/80'
-              }`}
-            >
-              À propos
-            </button>
-            <button
-              onClick={() => handleNavClick('contact')}
-              className={`block w-full text-left py-2 ${
-                currentPage === 'contact' ? 'text-white font-medium' : 'text-white/80'
-              }`}
-            >
-              Contact
-            </button>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 bg-white text-background rounded-full shadow-md w-fit font-medium"
-            >
-              <Download className="w-4 h-4" />
-              Télécharger mon CV
-            </a>
-          </motion.div>
-        )}
+              <button
+                onClick={() => handleNavClick('about')}
+                className={`block w-full text-left py-2 ${
+                  currentPage === 'about' ? 'text-primary font-semibold' : 'text-[#4e0201]'
+                }`}
+                aria-current={currentPage === 'about' ? 'page' : undefined}
+              >
+                À propos
+              </button>
+              <button
+                onClick={() => handleNavClick('contact')}
+                className={`block w-full text-left py-2 ${
+                  currentPage === 'contact' ? 'text-primary font-semibold' : 'text-[#4e0201]'
+                }`}
+                aria-current={currentPage === 'contact' ? 'page' : undefined}
+              >
+                Contact
+              </button>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-full shadow-md w-fit mx-auto"
+                aria-label="Télécharger mon CV (PDF)"
+              >
+                <Download className="w-4 h-4" />
+                Télécharger mon CV
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

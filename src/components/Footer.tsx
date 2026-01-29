@@ -5,7 +5,7 @@ import { getCurrentYear } from '../utils/helpers';
 
 export function Footer() {
   return (
-    <footer className="bg-secondary px-6 py-12 border-t border-border">
+    <footer className="bg-gradient-to-r from-[#2a0000] via-[#4e0201] to-[#2a0000] px-6 py-12 border-t border-white/10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center">
           <motion.div
@@ -14,7 +14,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl mb-6 text-white font-serif">
+            <h3 className="text-2xl mb-6 text-white font-medium">
               Sanjali Frédélisy
             </h3>
           </motion.div>
@@ -32,7 +32,7 @@ export function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-background hover:bg-card hover:text-white transition-all shadow-md"
+              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#4e0201] hover:bg-white/90 transition-all shadow-md"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -43,7 +43,7 @@ export function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-background hover:bg-card hover:text-white transition-all shadow-md"
+              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#4e0201] hover:bg-white/90 transition-all shadow-md"
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
@@ -54,7 +54,7 @@ export function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-background hover:bg-card hover:text-white transition-all shadow-md"
+              className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#4e0201] hover:bg-white/90 transition-all shadow-md"
               aria-label="Behance"
             >
               <Dribbble className="w-5 h-5" />
@@ -66,7 +66,7 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg text-white/80 mb-6 italic font-light"
+            className="text-lg text-foreground/80 mb-6 italic"
           >
             Pensé avec passion, conçu avec le cœur
           </motion.p>
@@ -76,7 +76,7 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-sm text-white/50"
+            className="text-sm text-muted-foreground"
           >
             © {getCurrentYear()} Sanjali Frédélisy. Tous droits réservés.
           </motion.div>

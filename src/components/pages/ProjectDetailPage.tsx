@@ -27,16 +27,16 @@ export function ProjectDetailPage({ projectId, setCurrentPage }: ProjectDetailPa
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay }}
-        className="bg-card rounded-3xl p-8 shadow-md border border-white/5"
+        className="bg-[#6f1a19] rounded-3xl p-8 shadow-md border border-white/10"
       >
-        <h2 className="text-3xl mb-6 text-white font-serif">{title}</h2>
+        <h2 className="text-3xl mb-6 text-white">{title}</h2>
         {content ? (
           <p className="text-white/80 leading-relaxed text-lg whitespace-pre-line">
             {content}
           </p>
         ) : (
-          <div className="min-h-[150px] flex items-center justify-center border-2 border-dashed border-white/10 rounded-2xl">
-            <p className="text-white/30 italic">Contenu à ajouter...</p>
+          <div className="min-h-[150px] flex items-center justify-center border-2 border-dashed border-white/20 rounded-2xl">
+            <p className="text-white/50 italic">Contenu à ajouter...</p>
           </div>
         )}
       </motion.div>
@@ -44,7 +44,7 @@ export function ProjectDetailPage({ projectId, setCurrentPage }: ProjectDetailPa
   };
 
   return (
-    <section className="min-h-screen px-6 py-32 bg-gradient-to-br from-background via-secondary to-card">
+    <section className="min-h-screen px-6 py-32 bg-gradient-to-br from-[#4e0201] via-[#2a0000] to-[#4e0201]">
       <div className="max-w-5xl mx-auto">
         {/* Back button */}
         <motion.button
@@ -65,8 +65,8 @@ export function ProjectDetailPage({ projectId, setCurrentPage }: ProjectDetailPa
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <p className="text-sm text-white/60 mb-2 tracking-wider uppercase">{project.category}</p>
-          <h1 className="text-5xl md:text-6xl text-white mb-6 font-serif">
+          <p className="text-sm text-white/80 mb-2 tracking-wider uppercase">{project.category}</p>
+          <h1 className="text-5xl md:text-6xl text-white mb-6">
             {project.title}
           </h1>
         </motion.div>
@@ -76,7 +76,7 @@ export function ProjectDetailPage({ projectId, setCurrentPage }: ProjectDetailPa
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="w-full h-96 rounded-3xl overflow-hidden shadow-xl mb-16 bg-white/5 border border-white/10"
+          className="w-full h-96 rounded-3xl overflow-hidden shadow-xl mb-16 bg-[#2a0000]"
         >
           <img
             src={project.image}
@@ -96,9 +96,9 @@ export function ProjectDetailPage({ projectId, setCurrentPage }: ProjectDetailPa
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.6, delay: 0.35 }}
-             className="bg-card rounded-3xl p-8 shadow-md border border-white/5"
+             className="bg-[#6f1a19] rounded-3xl p-8 shadow-md border border-white/10"
            >
-             <h2 className="text-3xl mb-6 text-white font-serif">👥 Cible</h2>
+             <h2 className="text-3xl mb-6 text-white">👥 Cible</h2>
              <p className="text-white/80 leading-relaxed text-lg whitespace-pre-line">
                {project.details.target}
              </p>
@@ -130,7 +130,7 @@ export function ProjectDetailPage({ projectId, setCurrentPage }: ProjectDetailPa
         >
           <button
             onClick={handleBack}
-            className="px-8 py-3 bg-white text-background rounded-full shadow-lg hover:shadow-xl transition-all font-medium"
+            className="px-8 py-3 bg-white text-[#4e0201] font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Retour aux réalisations
           </button>

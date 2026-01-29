@@ -17,6 +17,8 @@ export const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
     const [span, setSpan] = useState(0);
 
     useEffect(() => {
+      let rafId: number;
+
       const updateSpan = () => {
         if (contentRef.current) {
           const height = contentRef.current.getBoundingClientRect().height;
@@ -32,20 +34,26 @@ export const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         }
       };
 
+      const handleResize = () => {
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateSpan);
+      };
+
       // Initial calculation
       updateSpan();
 
-      const observer = new ResizeObserver(updateSpan);
+      const observer = new ResizeObserver(handleResize);
       if (contentRef.current) {
         observer.observe(contentRef.current);
       }
 
       // Fallback for image loading resize events
-      window.addEventListener('resize', updateSpan);
+      window.addEventListener('resize', handleResize);
 
       return () => {
         observer.disconnect();
-        window.removeEventListener('resize', updateSpan);
+        window.removeEventListener('resize', handleResize);
+        cancelAnimationFrame(rafId);
       };
     }, []);
 
@@ -84,8 +92,8 @@ export const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
           </div>
 
           {/* Overlay Info Layer */}
-          <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
-            <span className="text-xs font-medium tracking-widest text-white/80 uppercase mb-2 transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+          <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 bg-gradient-to-t from-rose-950/90 via-rose-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
+            <span className="text-xs font-medium tracking-widest text-rose-100 uppercase mb-2 transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
               {project.category}
             </span>
             <h3 className="text-2xl font-serif font-medium text-white transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-150">
