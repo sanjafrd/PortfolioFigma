@@ -1,3 +1,37 @@
+import projetAngelePardon from 'figma:asset/a29a96c45105babd89f20f0bf28ed8f0fa0190ac.png';
+import projetPantoufle from 'figma:asset/929f65062e7ab91e7218ae36e9c496920d253e8d.png';
+import projetMiels from 'figma:asset/8bfe133a2c37018725e7cd23f2b840b828cc3833.png';
+import projetMauvaisEleves from 'figma:asset/41bbfd78d0dd79068b20fcf098006308112bb19e.png';
+import projetGlace from 'figma:asset/b0357c2980efdba214595eefbbe1bbbe0190c11e.png';
+import projetLiloStitch from 'figma:asset/7d966ccca7dc7918c51bc44dd3ecafe824ba394b.png';
+import projetClementine from 'figma:asset/e0eeae9bca851e9f2b7768e46eef37f499042d38.png';
+import projetAristochats from 'figma:asset/c0e5f0adf6b1f97c4a9525f298b333bd83fdf20b.png';
+import projetNalu from 'figma:asset/7ba25114a3db8fa59fa56b43d7aaca1b903660f7.png';
+import projetAirAustral from 'figma:asset/d0773edf83316b2a4f921bb9cb223ce5d90adf3f.png';
+import projetEDN from 'figma:asset/2e4f71040f207309b51a964a0b6eba1b38fd8ad1.png';
+import projetBenetton from 'figma:asset/fac4d339808187a44b0854bc1e337006578e6f7d.png';
+import projetStoryboard from 'figma:asset/42a41e26b19b345331a7f6bd58b42845d1016600.png';
+
+// Current Entreprise Images
+import projetSecurite from 'figma:asset/f861591e708e949f3d7149043abeab45421cdd31.png';
+import projetBientraitance from 'figma:asset/93d01dcd8ff3a72c0ad5bd26ae1d804310b57cc6.png';
+import projetBrochure from 'figma:asset/0b1665739c6366ef1efeec964f075db37864f375.png';
+import projetHygiene from 'figma:asset/9a9a7ee3ef0cf2eb671426c55ab8fdc46b9989b9.png';
+import projetTaxe from 'figma:asset/fc023c72b7c5e548022a333769367c8f537f3ded.png';
+import projetVaccination from 'figma:asset/431446adb6ccbe797baeb83cc83a07d74f5832e4.png';
+
+// New Entreprise Images (Small)
+import projetOralite from 'figma:asset/70af1bfce861da1483189be1fc0de5e7478b6512.png';
+import projetReseaux from 'figma:asset/a9150cd52f37c5577ac5f6e55ff5d461b35cc82f.png';
+import projetPresse from 'figma:asset/bd3515837aba6f7a751109af7e54bd7b27b6b214.png';
+
+// New Header Image (Large)
+import projetCEM from 'figma:asset/68a3c8de66efc8636c6ee6097680c43c1c3fa8ca.png';
+
+// New Added Images (Batch 4)
+import projetKakemono from 'figma:asset/c1cafb74ace531160264bf96c0b76ce12cf6d1ca.png';
+import projetManuel from 'figma:asset/824006952e5e165a65264f7073352080f9705b88.png';
+
 export interface ProjectDetails {
   context?: string;
   target?: string;
@@ -25,7 +59,7 @@ export const projects: Project[] = [
     title: '20 Ans CEM',
     category: 'Événementiel & Communication',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1698925914457-05fd83774a85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBldmVudCUyMGNlbGVicmF0aW9uJTIwYnJhbmRpbmclMjBtYXJrZXRpbmclMjBkZXNpZ258ZW58MXx8fHwxNzY5NjcyMTE1fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetCEM,
     size: 'large',
   },
 
@@ -35,7 +69,7 @@ export const projects: Project[] = [
     title: 'Semaine Sécurité Patient',
     category: 'Communication Santé',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1722235625926-3db1c4c54af0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXRpZW50JTIwc2FmZXR5JTIwaG9zcGl0YWwlMjBtZWRpY2FsJTIwcG9zdGVyJTIwY29tbXVuaWNhdGlvbnxlbnwxfHx8fDE3Njk2NzIxMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetSecurite,
     size: 'medium',
   },
   {
@@ -43,7 +77,7 @@ export const projects: Project[] = [
     title: 'Bientraitance',
     category: 'Campagne de Sensibilisation',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1693821193240-8ccede32fb01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGRlcmx5JTIwY2FyZSUyMGtpbmRuZXNzJTIwaGFuZHMlMjBob2xkaW5nJTIwd2FybSUyMGxpZ2h0aW5nfGVufDF8fHx8MTc2OTY3MjExNnww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetBientraitance,
     size: 'medium',
   },
   {
@@ -51,7 +85,7 @@ export const projects: Project[] = [
     title: 'Brochure Établissement',
     category: 'Édition & Communication',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1695634621121-691d54259d37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBicm9jaHVyZSUyMG1hZ2F6aW5lJTIwbGF5b3V0JTIwZWRpdG9yaWFsJTIwZGVzaWduJTIwbWluaW1hbHxlbnwxfHx8fDE3Njk2NzIxMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetBrochure,
     size: 'medium',
   },
   // Projets Entreprise (Batch 2)
@@ -60,7 +94,7 @@ export const projects: Project[] = [
     title: 'Campagne Hygiène des Mains',
     category: 'Communication Santé',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1628235176517-71013205a2de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kJTIwaHlnaWVuZSUyMHdhc2hpbmclMjBoYW5kcyUyMHNvYXAlMjBtZWRpY2FsJTIwYmx1ZXxlbnwxfHx8fDE3Njk2NzIxMTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetHygiene,
     size: 'large',
   },
   {
@@ -68,7 +102,7 @@ export const projects: Project[] = [
     title: 'Taxe Apprentissage',
     category: 'Communication Institutionnelle',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcHByZW50aWNlc2hpcCUyMHRheCUyMGJ1c2luZXNzJTIwZmluYW5jZSUyMGNhbGN1bGF0b3IlMjBkb2N1bWVudHxlbnwxfHx8fDE3Njk2NzIxMTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetTaxe,
     size: 'medium',
   },
   {
@@ -76,7 +110,7 @@ export const projects: Project[] = [
     title: 'Vaccination Grippe',
     category: 'Communication Santé',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1578307896780-d257213543a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmbHUlMjB2YWNjaW5hdGlvbiUyMHN5cmluZ2UlMjBtZWRpY2FsJTIwZG9jdG9yJTIwcGF0aWVudHxlbnwxfHx8fDE3Njk2NzIxMTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetVaccination,
     size: 'medium',
   },
   // Projets Entreprise (Batch 3 - Small)
@@ -85,7 +119,7 @@ export const projects: Project[] = [
     title: 'Campagne Oralité',
     category: 'Communication Santé',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1473232117216-c950d4ef2e14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmFsJTIwaGVhbHRoJTIwZGVudGlzdCUyMHNtaWxlJTIwdGVldGglMjBjb21tdW5pY2F0aW9ufGVufDF8fHx8MTc2OTY3MjExOHww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetOralite,
     size: 'small',
   },
   {
@@ -93,7 +127,7 @@ export const projects: Project[] = [
     title: 'Poste pour les réseaux',
     category: 'Social Media',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1762330465740-ecffd36232f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpY2FsJTIwbWFya2V0aW5nJTIwaW5zdGFncmFtJTIwcG9zdHMlMjBwaG9uZSUyMHNjcmVlbnxlbnwxfHx8fDE3Njk2NzIxMTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetReseaux,
     size: 'small',
   },
   {
@@ -101,7 +135,7 @@ export const projects: Project[] = [
     title: 'Communiqué de Presse',
     category: 'Relations Presse',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1586339949216-35c2747cc36d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVzcyUyMHJlbGVhc2UlMjBqb3VybmFsaXNtJTIwd3JpdGluZyUyMG5ld3NwYXBlciUyMG1pY3JvcGhvbmV8ZW58MXx8fHwxNzY5NjcyMTE4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetPresse,
     size: 'small',
   },
   // Projets Entreprise (Batch 4 - Added)
@@ -110,7 +144,7 @@ export const projects: Project[] = [
     title: 'Kakemono Établissements',
     category: 'Communication Visuelle',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1600320844678-43cebba1cdfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb2xsJTIwdXAlMjBiYW5uZXIlMjBleGhpYml0aW9uJTIwZGVzaWduJTIwc3RhbmQlMjBtb2NrdXB8ZW58MXx8fHwxNzY5NjcyNDEzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetKakemono,
     size: 'medium',
   },
   {
@@ -118,7 +152,7 @@ export const projects: Project[] = [
     title: 'Manuel de Visibilité',
     category: 'Identité Visuelle',
     type: 'entreprise',
-    image: 'https://images.unsplash.com/photo-1590102426275-8d1c367070d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwbWFudWFsJTIwZ3VpZGVsaW5lcyUyMGJvb2slMjBsb2dvJTIwZGVzaWdufGVufDF8fHx8MTc2OTY3MjExOHww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetManuel,
     size: 'medium',
   },
 
@@ -138,7 +172,7 @@ export const projects: Project[] = [
     title: 'Angèle & Pardon!',
     category: 'Collaboration Créative',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1764520408437-95890a95db4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHBvc3RlciUyMGRlc2lnbiUyMGFydGlzdGljJTIwY29sb3JmdWwlMjBncmFwaGljfGVufDF8fHx8MTc2OTY3MjExOXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetAngelePardon,
     size: 'large',
     details: {
       target: "Professionnel(le) de la communication, le tuteur encadre des étudiants en BTS Communication en alternance. Il/elle est régulièrement sollicité(e) par l’établissement de formation et cherche à rester informé(e) des actualités liées au BTS, aux outils de communication et aux bonnes pratiques du secteur"
@@ -149,7 +183,7 @@ export const projects: Project[] = [
     title: 'La Pantoufle à Pépère',
     category: 'Branding & Identité',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1645475401635-88f088f224d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbGlwcGVyJTIwY296eSUyMGJyYW5kaW5nJTIwbG9nbyUyMHdvb2wlMjB0ZXh0dXJlfGVufDF8fHx8MTc2OTY3MjExOXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetPantoufle,
     size: 'medium',
   },
   {
@@ -157,7 +191,7 @@ export const projects: Project[] = [
     title: 'Miels Rares du Cirque',
     category: 'Packaging & Communication',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1740730808274-3838998c4504?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob25leSUyMHBhY2thZ2luZyUyMGphciUyMGx1eHVyeSUyMGRlc2lnbnxlbnwxfHx8fDE3Njk2NzI0MTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetMiels,
     size: 'medium',
   },
   {
@@ -165,7 +199,7 @@ export const projects: Project[] = [
     title: 'Les Mauvais Élèves',
     category: 'Illustration',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1759753928132-364c22819e89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbGx1c3RyYXRpb24lMjBkcmF3aW5nJTIwYXJ0JTIwYmFkJTIwc3R1ZGVudHMlMjBzY2hvb2wlMjBmdW5ueXxlbnwxfHx8fDE3Njk2NzIxMjB8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetMauvaisEleves,
     size: 'medium',
   },
   {
@@ -173,7 +207,7 @@ export const projects: Project[] = [
     title: 'Glace',
     category: 'Illustration',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1566321116846-60099a937385?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpY2UlMjBjcmVhbSUyMHN1bW1lciUyMGlsbHVzdHJhdGlvbiUyMGNvbG9yZnVsJTIwcG9wJTIwYXJ0fGVufDF8fHx8MTc2OTY3MjEyMHww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetGlace,
     size: 'large',
   },
   {
@@ -181,7 +215,7 @@ export const projects: Project[] = [
     title: 'Lilo & Stitch',
     category: 'Illustration',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1625077854313-735e4442a038?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGlsbHVzdHJhdGlvbiUyMGhhd2FpaSUyMHN0eWxlJTIwdmlicmFudHxlbnwxfHx8fDE3Njk2NzI0MTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetLiloStitch,
     size: 'medium',
   },
   {
@@ -189,7 +223,7 @@ export const projects: Project[] = [
     title: 'Clementine',
     category: 'Illustration',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1765382506526-9de810e1aeb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVtZW50aW5lJTIwb3JhbmdlJTIwZnJ1aXQlMjBpbGx1c3RyYXRpb24lMjBjaXRydXMlMjBmcmVzaHxlbnwxfHx8fDE3Njk2NzIxMjB8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetClementine,
     size: 'medium',
   },
   {
@@ -197,7 +231,7 @@ export const projects: Project[] = [
     title: 'Aristochats',
     category: 'Illustration',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1736703263170-29c8b10977ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXp6JTIwY2F0JTIwaWxsdXN0cmF0aW9uJTIwYXJ0aXN0aWMlMjBwaWFub3xlbnwxfHx8fDE3Njk2NzI0MTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetAristochats,
     size: 'medium',
   },
   {
@@ -205,7 +239,7 @@ export const projects: Project[] = [
     title: 'Nalu',
     category: 'Illustration',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1764520408437-95890a95db4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHBvc3RlciUyMGRlc2lnbiUyMGFydGlzdGljJTIwY29sb3JmdWwlMjBncmFwaGljfGVufDF8fHx8MTc2OTY3MjExOXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetNalu,
     size: 'medium',
   },
   {
@@ -213,7 +247,7 @@ export const projects: Project[] = [
     title: 'Air Austral',
     category: 'Branding & Identité',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1693749546359-7aeb24ff6ac0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaXJsaW5lJTIwYnJhbmRpbmclMjBsb2dvJTIwcGxhbmUlMjBza3klMjBjbG91ZHMlMjB0cmF2ZWx8ZW58MXx8fHwxNzY5NjcyMTIyfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetAirAustral,
     size: 'large',
   },
   {
@@ -221,7 +255,7 @@ export const projects: Project[] = [
     title: 'EDN',
     category: 'Branding & Identité',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1613905383527-8994ba2f9896?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbG9nbyUyMGJyYW5kaW5nJTIwZGVzaWduJTIwY2xlYW4lMjB0eXBvZ3JhcGh5fGVufDF8fHx8MTc2OTY3MjEyMXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetEDN,
     size: 'medium',
   },
   {
@@ -229,7 +263,7 @@ export const projects: Project[] = [
     title: 'Benetton',
     category: 'Branding & Identité',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1767570278951-0a3c50e1a07c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvcmZ1bCUyMGZhc2hpb24lMjBwaG90b2dyYXBoeSUyMGFydGlzdGljJTIwc3R5bGV8ZW58MXx8fHwxNzY5NjcyNDEzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetBenetton,
     size: 'large',
   },
   {
@@ -237,7 +271,7 @@ export const projects: Project[] = [
     title: 'Storyboard',
     category: 'Storyboard',
     type: 'ecole',
-    image: 'https://images.unsplash.com/photo-1714251638558-349c2f49ea33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9yeWJvYXJkJTIwbW92aWUlMjBmaWxtJTIwc2tldGNoJTIwZHJhd2luZyUyMHNlcXVlbmNlfGVufDF8fHx8MTc2OTY3MjEyMXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: projetStoryboard,
     size: 'medium',
   },
 ];
