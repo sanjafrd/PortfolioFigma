@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import profileImage from 'figma:asset/456f6eb9af5c2173108cc47471b5e7ed3175d93b.png';
+// import profileImage from 'figma:asset/456f6eb9af5c2173108cc47471b5e7ed3175d93b.png';
+const profileImage = "https://images.unsplash.com/photo-1658909835269-e76abd3ffb5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0JTIwY3JlYXRpdmUlMjBkaXJlY3RvciUyMHdhcm0lMjBsaWdodGluZyUyMHNtaWxpbmd8ZW58MXx8fHwxNzY5NjcyNDEzfDA&ixlib=rb-4.1.0&q=80&w=1080";
 
 export function AboutPage() {
   return (
